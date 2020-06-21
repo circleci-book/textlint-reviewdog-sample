@@ -1,0 +1,1 @@
+# textlint-reviewdog-sample
