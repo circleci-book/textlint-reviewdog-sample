@@ -17,7 +17,7 @@ jobs:
             curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s  v$REVIEWDOG_VERSION
       - run: # (d1)
           name: "textlintをREADME.mdに対して実行する"
-          command: $(npm bin)/textlint -f checkstyle README.md >> .textlint.log
+          command: npx textlint -f checkstyle README.md >> .textlint.log
       - run: # (d2)
           name: "reviewdogを実行する"
           when: on_fail
