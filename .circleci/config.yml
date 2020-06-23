@@ -1,11 +1,10 @@
+# ref: https://github.com/azu/textlint-reviewdog-example
 version: 2.1
 
 jobs:
   proofreading_job:
     docker:
       - image: circleci/node
-    environment:
-      REVIEWDOG_VERSION: 0.9.12
     steps:
       - checkout
       - run:
@@ -14,7 +13,7 @@ jobs:
       - run:
           name: "reviewdogをインストールする"
           command: |
-            curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s  v$REVIEWDOG_VERSION
+            curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s
       - run: # (d1)
           name: "textlintをREADME.mdに対して実行する"
           command: npx textlint -f checkstyle README.md >> .textlint.log

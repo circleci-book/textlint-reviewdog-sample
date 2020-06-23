@@ -4,3 +4,8 @@
 
 <CircleCIではじめるCI/CD入門>の8章「ドキュメントの校正」におけるサンプルコードです。
 
+この文は敬体である。この文は常体だ。
+
+参考
+- https://github.com/azu/textlint-reviewdog-example
+
