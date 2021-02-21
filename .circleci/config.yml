@@ -31,5 +31,3 @@ workflows:
   proofreading:
     jobs:
       - proofreading_job
-      
-
