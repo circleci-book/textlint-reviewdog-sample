@@ -4,7 +4,7 @@
 
 [CircleCI実践入門](https://gihyo.jp/book/2020/978-4-297-11411-4)の11章「ドキュメントの校正」におけるサンプルコードです。
 
-この文は敬体である。この文は常体だ。
+この文は敬体です。この文は常体だ。
 
 参考
 - https://github.com/azu/textlint-reviewdog-example
