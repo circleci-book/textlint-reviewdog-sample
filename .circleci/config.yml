@@ -8,6 +8,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "textlintをインストールする"
+          command: npm install --save-dev textlint textlint-rule-no-mix-dearu-desumasu
+      - run:    
           name: "依存モジュールをインストールする"
           command: npm install
       - run:
