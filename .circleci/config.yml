@@ -16,7 +16,8 @@ jobs:
       - run:
           name: "Install reviewdog"
           command: |
-            curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s
+           # curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s
+             curl -fSL https://github.com/haya14busa/reviewdog/releases/download/$REVIEWDOG_VERSION/reviewdog_linux_amd64 -o ~/bin/reviewdog && chmod +x ~/bin/reviewdog
       - run: # (d1)
           name: "Execute textlint for README.md"
           command: npx textlint --rule common-misspellings README.md >> .textlint.log
@@ -24,7 +25,7 @@ jobs:
           name: "Execute reviewdog"
           when: on_fail
           command: |
-            cat .textlint.log | reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review" -ci="circle-ci"
+            cat .textlint.log | ./bin/reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review" -ci="circle-ci"
 
 workflows:
   version: 2
