@@ -24,7 +24,7 @@ jobs:
           name: "Execute reviewdog"
           when: on_fail
           command: |
-            cat .textlint.log | ./bin/reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review" -ci="circle-ci"
+            cat .textlint.log | reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review" -ci="circle-ci"
 
 workflows:
   version: 2
