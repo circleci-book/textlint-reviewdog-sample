@@ -17,9 +17,6 @@ jobs:
           name: "Install reviewdog"
           command: |
             curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s
-      - run: # (d1)
-          name: "Execute textlint for README.md"
-          command: npx textlint --rule common-misspellings README.md >> .textlint.log
       - run:
           name: "Update PATH and Define Env Var at Runtime"
           command: |
@@ -27,6 +24,9 @@ jobs:
             echo 'export CIRCLE_PROJECT_USERNAME=hogehoge' >> $BASH_ENV
             echo "export CIRCLE_SHA1 =$CIRCLE_SHA1" >> $BASH_ENV
             source $BASH_ENV
+      - run: # (d1)
+          name: "Execute textlint for README.md"
+          command: npx textlint --rule common-misspellings README.md >> .textlint.log
       - run: # (d2)
           name: "Execute reviewdog"
           when: on_fail
