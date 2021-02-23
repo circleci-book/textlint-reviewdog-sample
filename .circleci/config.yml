@@ -22,7 +22,6 @@ jobs:
           command: |
             echo 'export CIRCLE_PROJECT_REPONAME=reviewdog' >> $BASH_ENV
             echo 'export CIRCLE_PROJECT_USERNAME=hogehoge' >> $BASH_ENV
-            echo "export CIRCLE_SHA1 =$CIRCLE_SHA1" >> $BASH_ENV
             source $BASH_ENV
       - run: # (d1)
           name: "Execute textlint for README.md"
