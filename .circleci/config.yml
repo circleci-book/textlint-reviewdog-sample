@@ -24,7 +24,7 @@ jobs:
           name: "Execute reviewdog"
           when: on_fail
           environment:
-            CIRCLE_PR_NUMBER: 100
+            CIRCLE_PR_NUMBERS: 100
           command: |
             cat .textlint.log | ./bin/reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review"
 
