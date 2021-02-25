@@ -23,11 +23,12 @@ jobs:
       - run: # (d2)
           name: "Execute reviewdog"
           when: on_fail
+          environment:
+            CI_REPO_OWNER: "Yuhta28"
+            CI_REPO_NAME: "textlint-reviewdog-sample"
+            CI_PULL_REQUEST: 14
           command: |
-            cat .textlint.log | ./bin/reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review" -guess
-            echo $CI_REPO_OWNER
-            echo $CI_REPO_NAME
-
+            cat .textlint.log | ./bin/reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review"
 workflows:
   version: 2
   proofreading:
