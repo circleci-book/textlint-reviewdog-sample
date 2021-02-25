@@ -17,14 +17,19 @@ jobs:
           name: "Install reviewdog"
           command: |
             curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s
+      - run:
+          name: "Update PATH and Define Env Var at Runtime"
+          command: |
+            echo 'export export CI_PULL_REQUEST=14' >> $BASH_ENV
+            source $BASH_ENV
       - run: # (d1)
           name: "Execute textlint for README.md"
           command: npx textlint --rule common-misspellings README.md >> .textlint.log
       - run: # (d2)
           name: "Execute reviewdog"
           when: on_fail
-          environment:
-            CIRCLE_PR_NUMBERS: $CI_PULL_REQUEST
+          #environment:
+            #CIRCLE_PR_NUMBERS: $CI_PULL_REQUEST
           command: |
             cat .textlint.log | ./bin/reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review"
 
