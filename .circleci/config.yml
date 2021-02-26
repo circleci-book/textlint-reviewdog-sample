@@ -24,14 +24,14 @@ jobs:
           name: Define CIRCLE_PR_NUMBER Environment Variable at Runtime
           when: on_fail
           command: |
-            echo "export CIRCLE_PR_NUMBER=9999" >> $BASH_ENV
+            echo "export CIRCLE_PULL_REQUEST=9999" >> $BASH_ENV
             source $BASH_ENV
-            echo $CIRCLE_PR_NUMBER
+            echo $CIRCLE_PULL_REQUEST
       - run: # (d2)
           name: "Execute reviewdog"
           when: on_fail
           command: |
-            echo $CIRCLE_PR_NUMBER
+            echo $CIRCLE_PULL_REQUEST
             cat .textlint.log | ./bin/reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review"
 workflows:
   version: 2
