@@ -27,7 +27,7 @@ jobs:
             echo "export CI_REPO_OWNER=Yuhta28" >> $BASH_ENV
             echo "export CI_REPO_NAME=textlint-reviewdog-sample" >> $BASH_ENV
             echo "export CIRCLE_PULL_REQUEST=1" >> $BASH_ENV
-            echo "export CI_COMMIT=$(git rev-parse HEAD)" >> $BASH_EMV
+            echo "export CI_COMMIT=$(git rev-parse HEAD)" >> $BASH_ENV
             source $BASH_ENV
             echo $CIRCLE_PULL_REQUEST
             echo $CI_COMMIT
