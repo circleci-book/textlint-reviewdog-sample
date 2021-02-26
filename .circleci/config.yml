@@ -26,6 +26,7 @@ jobs:
           command: |
             echo "export CIRCLE_PR_NUMBER=9999" >> $BASH_ENV
             source $BASH_ENV
+            echo $BASH_ENV
       - run: # (d2)
           name: "Execute reviewdog"
           when: on_fail
