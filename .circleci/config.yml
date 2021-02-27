@@ -23,6 +23,8 @@ jobs:
       - run: # (d2)
           name: "Execute reviewdog"
           when: on_fail
+          environment:
+            CIRCLE_PR_NUMBER: 4
           command: |
             echo $CIRCLE_PULL_REQUEST
             cat .textlint.log | ./bin/reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review"
