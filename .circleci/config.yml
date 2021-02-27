@@ -24,9 +24,9 @@ jobs:
           name: "Execute reviewdog"
           when: on_fail
           environment:
-            CIRCLE_PR_NUMBER: 4
+            CIRCLE_PR_NUMBER: 5
           command: |
-            echo $CIRCLE_PULL_REQUEST
+            echo $CIRCLE_PR_NUMBER
             cat .textlint.log | ./bin/reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review"
 workflows:
   version: 2
