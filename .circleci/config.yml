@@ -20,6 +20,7 @@ jobs:
       - run: # (d1)
           name: "Execute textlint for README.md"
           command: npx textlint --rule common-misspellings README.md >> .textlint.log
+                   cat .textlint.log
       - run: # (d2)
           name: "Execute reviewdog"
           when: on_fail
