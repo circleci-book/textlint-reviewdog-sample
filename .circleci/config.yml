@@ -19,7 +19,7 @@ jobs:
             curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s
       - run: # (d1)
           name: "Execute textlint for README.md"
-          command: npx textlint --rule common-misspellings README.md >> .textlint.log
+          command: npx textlint -f checkstyle --rule common-misspellings README.md >> .textlint.log
                    
       - run: # (d2)
           name: "Execute reviewdog"
@@ -27,7 +27,6 @@ jobs:
           environment:
             CIRCLE_PR_NUMBER: 5
           command: |
-            cat .textlint.log
             cat .textlint.log | ./bin/reviewdog -f=checkstyle -name="textlint" -reporter="github-pr-review"
 workflows:
   version: 2
