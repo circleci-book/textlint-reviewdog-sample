@@ -35,7 +35,7 @@ jobs:
 
       - name: Execute textlint for README.md
         run: |
-          npx textlint --rule common-misspellings README.md >> .textlint.log
+          npx textlint -f checkstyle --rule common-misspellings README.md >> .textlint.log
 
       - name: Run reviewdog
         if: always()
